@@ -199,18 +199,18 @@ public class TriangleSeekBar extends View {
         // 计算progress方向移动距离, +1是为了让覆盖区域略大于背景
         int move = (int)((float)currentPercent / 100 * seekBarMaxWidth + 1);
         int currLeftX = mStartPoint.x - move;
-        int currRight = mStartPoint.x + move;
+        int currRightX = mStartPoint.x + move;
         // 限定边界
         if (currLeftX < bgLeftEndX) {
             currLeftX = (int)bgLeftEndX;
         }
 
-        if (currRight > bgRightEndX) {
-            currRight = (int)bgRightEndX;
+        if (currRightX > bgRightEndX) {
+            currRightX = (int)bgRightEndX;
         }
 
         path.lineTo(currLeftX, mStartPoint.y + onMoveDistance);
-        path.lineTo(currRight, mStartPoint.y + onMoveDistance);
+        path.lineTo(currRightX, mStartPoint.y + onMoveDistance);
         path.lineTo(mStartPoint.x + 1, mStartPoint.y);
         path.close();
 
